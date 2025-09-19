@@ -3,6 +3,10 @@ package opgave02;
 public class Opgave02 {
     public static void main(String[] args) {
         char[] characterArray = getCharacterArray();
+        System.out.println("amount of each vowel in an array, a, e, i, o, u, y, æ, ø, å");
+        opgave01.Opgave01.printNumbers(amountOfEachVowel(characterArray));
+        System.out.println("The array of chars printed in leetspeak");
+        System.out.println(leetspeakConverter(characterArray));
     }
 
     private static char[] getCharacterArray() {
@@ -27,5 +31,34 @@ public class Opgave02 {
                 "men der har jeg aldrig været! – I er her dog vel alle sammen! – og så rejste hun sig" +
                 " op, nej, jeg har ikke alle! det største æg ligger der endnu; hvor længe skal det vare! nu er " +
                 "jeg snart ked af det! og så lagde hun sig igen.").toCharArray();
+    }
+
+    //a
+    public static int[] amountOfEachVowel(char[] characterArray) {
+        int[] counters = new int[9];
+        char[] largeVowels = {'A', 'E', 'I', 'O', 'U', 'Y', 'Æ', 'Ø', 'Å'};
+        char[] smallVowels = {'a', 'e', 'i', 'o', 'u', 'y', 'æ', 'ø', 'å'};
+        for (char a : characterArray) {
+            for (int i = 0; i < smallVowels.length; i++) {
+                if (a == smallVowels[i] | a == largeVowels[i]) {
+                    counters[i] += 1;
+                    break;
+                }
+            }
+        }
+        return counters;
+    }
+    public static char[] leetspeakConverter(char[] characterArray){
+        char[] changedChars = {'A','B','C','E','I','J','O','S','T','Z','a','b','g','l','s','t'};
+        char[] leetChars = {'4','8','[','3','|',']','0','$','7','2','@','6','9','1','5','+'};
+        for (int i = 0; i < characterArray.length; i++) {
+            for (int j = 0; j < changedChars.length; j++) {
+                if (characterArray[i]==changedChars[j]){
+                    characterArray[i] = leetChars[j];
+                    break;
+                }
+            }
+        }
+        return characterArray;
     }
 }
