@@ -3,29 +3,30 @@ package opgave06;
 public class Opgave06 {
     public static void main(String[] args) {
         char[] romanNumber = {'M', 'L', 'X', 'I'}; //1061
+        char[] romanNumber2 = {'C','M','X','L','I','V'}; //944
         System.out.println(romanNumberToArabicNumber(romanNumber));
+        System.out.println(romanNumberToArabicNumber(romanNumber2));
     }
 
     private static int romanNumberToArabicNumber(char[] romanNumber) {
         //Din implementering her.
         int x0 = singleRomanNumberToArabicNumber(romanNumber[0]);
         int x1 = 0;
-        if (romanNumber.length >1) x1 = singleRomanNumberToArabicNumber(romanNumber[1]);
+        if (romanNumber.length > 1) x1 = singleRomanNumberToArabicNumber(romanNumber[1]);
         int x2 = 0;
-        if (romanNumber.length >2) x2 = singleRomanNumberToArabicNumber(romanNumber[2]);
+        if (romanNumber.length > 2) x2 = singleRomanNumberToArabicNumber(romanNumber[2]);
         int arabicNumber = 0;
         for (int i = 0; i < romanNumber.length - 2; i++) {
             x0 = singleRomanNumberToArabicNumber(romanNumber[i]);
             x1 = singleRomanNumberToArabicNumber(romanNumber[i + 1]);
             x2 = singleRomanNumberToArabicNumber(romanNumber[i + 2]);
-            if (x0 < x1| x0 < x2)
+            if (x0 < x1 | x0 < x2)
                 arabicNumber = arabicNumber - singleRomanNumberToArabicNumber(romanNumber[i]);
             else arabicNumber = arabicNumber + singleRomanNumberToArabicNumber(romanNumber[i]);
         }
-        if (x1<x2){
+        if (x1 < x2) {
             arabicNumber = arabicNumber - x1;
-        }
-        else arabicNumber = arabicNumber + x1;
+        } else arabicNumber = arabicNumber + x1;
         arabicNumber = arabicNumber + x2;
 
 
