@@ -23,10 +23,10 @@ public class Opgave06 {
             else arabicNumber = arabicNumber + singleRomanNumberToArabicNumber(romanNumber[i]);
         }
         if (x1<x2){
-            arabicNumber = arabicNumber - singleRomanNumberToArabicNumber(romanNumber[romanNumber.length-2]);
+            arabicNumber = arabicNumber - x1;
         }
-        else arabicNumber = arabicNumber + singleRomanNumberToArabicNumber(romanNumber[romanNumber.length-2]);
-        arabicNumber = arabicNumber + singleRomanNumberToArabicNumber(romanNumber[romanNumber.length-1]);
+        else arabicNumber = arabicNumber + x1;
+        arabicNumber = arabicNumber + x2;
 
 
         return arabicNumber;
