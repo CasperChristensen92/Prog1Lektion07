@@ -65,8 +65,7 @@ public class Opgave01 {
     //opgave e
     public static int[] crossSumNumbers(int[] integerArray){
         int[] crossSumNumbers = new int[10];
-        for (int i = 0; i < integerArray.length; i++) {
-            int x = integerArray[i];
+        for (int x : integerArray) {
             while (x != crossSum(x)){
                 x = crossSum(x);
             }
