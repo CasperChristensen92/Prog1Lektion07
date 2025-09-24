@@ -10,6 +10,8 @@ public class Opgave01 {
         System.out.println("The sum of the numbers in the array of integers is: ");
         System.out.print(sumNumber(integerArray));
         System.out.println(" ");
+        System.out.print(averageNumber(integerArray));
+        System.out.println(" ");
         System.out.println("The array of the crossSums in an array");
         printNumbers(crossSums(integerArray));
         System.out.println("The array of how many times the 10 possible single digit crosssum appears in an array");

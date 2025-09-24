@@ -12,13 +12,11 @@ public class Opgave04 {
 
     public static boolean palidromString (String word){
         char[] charArray = word.toCharArray();
-        boolean isPalidrom = true;
         for (int i = 0; i < charArray.length/2; i++) {
             if (charArray[i]!=charArray[charArray.length-(i+1)]){
-                isPalidrom = false;
-                break;
+                return false;
             }
         }
-        return isPalidrom;
+        return true;
     }
 }
